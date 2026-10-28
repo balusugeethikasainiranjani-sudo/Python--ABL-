@@ -1,0 +1,36 @@
+51. Bus Passenger Occupancy Simulation
+1. Problem Statement
+Process passenger boarding and alighting counts at several bus stops, calculate occupancy after every stop, and flag
+capacity violations.
+2. Objectives
+Track passengers stop by stop; prevent negative passenger counts; identify when bus capacity is exceeded.
+3. Assumptions
+The bus starts empty. At each stop, alighting passengers leave before new passengers board. Bus capacity is 40. Inputs
+are non-negative integers and alighting cannot exceed current occupancy.
+4. Algorithm
+• Set capacity and current passengers to 40 and 0.
+• For each stop, read alighting and boarding counts.
+• If alighting exceeds current passengers, report invalid data. Otherwise subtract alighting and add boarding.
+• Display occupancy and flag any value above capacity.
+5. Flowchart
+Start → Set capacity and occupancy → Read alighting/boarding at each stop → Validate counts → Update occupancy →
+Check capacity → Display result → More stops? (yes: repeat; no: End)
+6. Pseudocode
+START\ncapacity ← 40; passengers ← 0\nFOR each stop\n INPUT alighting, boarding\n IF alighting > passengers OR counts are ne
+7. Python Source Code
+capacity = 40
+passengers = 0
+stops = int(input("Enter number of stops: "))
+for stop in range(1, stops + 1):
+print("Stop", stop)
+alighting = int(input("Passengers alighting: "))
+boarding = int(input("Passengers boarding: "))
+if alighting < 0 or boarding < 0 or alighting > passengers:
+print("Invalid passenger counts")
+else:
+passengers = passengers - alighting + boarding
+print("Passengers on bus:", passengers)
+if passengers > capacity:
+print("Capacity violation!")
+else:
+print("Within capacity")
